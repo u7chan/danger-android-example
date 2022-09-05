@@ -55,8 +55,8 @@ private fun CounterViewLayout(
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally, // 横方向
-        verticalArrangement = Arrangement.Center // 縦方向
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(text = "Count: $count")
 
