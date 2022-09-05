@@ -5,9 +5,23 @@ interface CounterUseCase {
     fun clear(): Result<Int>
 }
 
-class CounterUseCaseMock : CounterUseCase {
-    override fun increment(): Result<Int> = Result.success(1)
-    override fun clear(): Result<Int> = Result.success(0)
+class CounterUseCaseMock(
+    val incrementStub: () -> Int = { -1 },
+    val clearStub: () -> Int = { -1 }
+) : CounterUseCase {
+    var incrementSpy: Int = 0
+
+    override fun increment(): Result<Int> {
+        incrementSpy++
+        return Result.success(incrementStub())
+    }
+
+    var clearSpy: Int = 0
+
+    override fun clear(): Result<Int> {
+        clearSpy++
+        return Result.success(clearStub())
+    }
 }
 
 class CounterUseCaseImpl : CounterUseCase {

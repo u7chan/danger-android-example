@@ -47,11 +47,11 @@ class CounterViewModel(private val counterUseCase: CounterUseCase) : ViewModel()
     }
 
     fun clearCount() = viewModelScope.launch {
-        _uiEvent.send(UiEvent.Idle)
         counterUseCase.clear().onSuccess { newValue ->
             _uiState.update { state ->
                 state.copy(count = newValue)
             }
+            _uiEvent.send(UiEvent.Idle)
         }
     }
 
