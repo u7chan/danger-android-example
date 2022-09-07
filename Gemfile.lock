@@ -29,6 +29,8 @@ GEM
     danger-android_lint (0.0.11)
       danger-plugin-api (~> 1.0)
       oga
+    danger-ktlint (0.0.7)
+      danger-plugin-api (~> 1.0)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
     faraday (1.10.2)
@@ -93,6 +95,7 @@ PLATFORMS
 DEPENDENCIES
   danger
   danger-android_lint
+  danger-ktlint
 
 BUNDLED WITH
    2.3.7

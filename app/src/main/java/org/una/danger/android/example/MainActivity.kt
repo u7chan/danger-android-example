@@ -32,3 +32,9 @@ class MainActivity : ComponentActivity() {
 private fun injectViewModel(): CounterViewModel {
     return CounterViewModel(CounterUseCaseImpl())
 }
+
+private fun WarnMethod() {
+    val optionalValue: Int? = 1234
+    println(optionalValue!! + 1)
+    val unusedValue = "hoge"
+}
