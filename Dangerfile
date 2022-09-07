@@ -19,5 +19,4 @@ android_lint.filtering = true
 android_lint.lint(inline_mode: true)
 
 # ktlint
-ktlint.report_file = 'result.json'
 ktlint.lint(inline_mode: true)
