@@ -12,11 +12,6 @@ warn("Big PR") if git.lines_of_code > 500
 fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
-# Find bugs
-findbugs.gradle_task = "app:findbugs"
-findbugs.report_file = "app/build/reports/findbugs/findbugs.xml"
-findbugs.report(true)
-
 # Android Lint
 android_lint.gradle_task = "app:lint"
 android_lint.report_file = "app/build/reports/lint-results.xml"

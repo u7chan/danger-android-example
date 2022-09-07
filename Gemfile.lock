@@ -29,9 +29,6 @@ GEM
     danger-android_lint (0.0.11)
       danger-plugin-api (~> 1.0)
       oga
-    danger-findbugs (0.0.8)
-      danger-plugin-api (~> 1.0)
-      oga (~> 2.10)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
     faraday (1.10.2)
@@ -96,7 +93,6 @@ PLATFORMS
 DEPENDENCIES
   danger
   danger-android_lint
-  danger-findbugs
 
 BUNDLED WITH
    2.3.7
