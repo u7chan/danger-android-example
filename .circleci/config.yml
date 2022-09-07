@@ -6,7 +6,7 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - run: which gem
-      - run: which bundle
+      - run: which ruby
+      - run: ruby -v
       #- run: ./gradlew androidDependencies
       #- run: ./gradlew lint test
