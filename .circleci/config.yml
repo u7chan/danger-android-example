@@ -4,10 +4,12 @@ jobs:
     docker:
       - image: cimg/android:2022.08
     resource_class: small
-    #environment:
-    #  KTLINT_VERSION: 0.47.0
+    environment:
+      KTLINT_VERSION: 0.47.0
     steps:
       - checkout
-      #- run: curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && chmod a+x /usr/local/bin/ktlint
-      - run: bundle install --path vendor/bundle
-      - run: bundle exec danger --fail-on-errors=true
+      - run: which curl
+      - run: apt-get install -y curl
+      - run: curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && chmod a+x /usr/local/bin/ktlint
+      #- run: bundle install --path vendor/bundle
+      #- run: bundle exec danger --fail-on-errors=true
