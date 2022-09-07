@@ -6,7 +6,10 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - run: which ruby
-      - run: ruby -v
+      - run: bundle install --path vendor/bundle
+      - run: ls -la
+      - run: bundle install
+      - run: bundle exec danger --version
+      - run: bundle exec danger --fail-on-errors=true
       #- run: ./gradlew androidDependencies
       #- run: ./gradlew lint test
