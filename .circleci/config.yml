@@ -6,8 +6,7 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - run: echo "OK"
-      - run: pwd
-      - run: ls -la
+      - run: which gem
+      - run: which bundle
       #- run: ./gradlew androidDependencies
       #- run: ./gradlew lint test
