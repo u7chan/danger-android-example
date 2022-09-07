@@ -1,8 +1,11 @@
 package org.una.danger.android.example.view
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -24,16 +27,22 @@ fun CounterView(viewModel: CounterViewModel) {
                 Text(text = "CounterApp")
             })
         }
-    ) {
-        CounterViewLayout(
-            count = uiState.value.count,
-            onIncrement = {
-                viewModel.incrementCount()
-            },
-            onClear = {
-                viewModel.confirmCountClear()
-            }
-        )
+    ) { padding ->
+        Box(
+            Modifier
+                .padding(padding)
+                .fillMaxWidth()
+        ) {
+            CounterViewLayout(
+                count = uiState.value.count,
+                onIncrement = {
+                    viewModel.incrementCount()
+                },
+                onClear = {
+                    viewModel.confirmCountClear()
+                }
+            )
+        }
     }
     ConfirmDialog(
         title = "Are you sure you want to clear the counter?",

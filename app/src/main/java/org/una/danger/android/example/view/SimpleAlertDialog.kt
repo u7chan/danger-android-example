@@ -10,7 +10,7 @@ fun ConfirmDialog(
     title: String,
     show: Boolean,
     onClickOk: () -> Unit,
-    onClickCancel: () -> Unit,
+    onClickCancel: () -> Unit
 ) {
     if (show) {
         AlertDialog(
@@ -38,7 +38,7 @@ fun ConfirmDialog(
                 ) {
                     Text(text = "Cancel")
                 }
-            },
+            }
         )
     }
 }
