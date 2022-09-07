@@ -8,9 +8,7 @@ jobs:
       KTLINT_VERSION: 0.47.0
     steps:
       - checkout
-      - run: which curl
-      - run: apt-get install -y curl
-      - run: curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && chmod a+x /usr/local/bin/ktlint
+      - run: sudo curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && sudo chmod a+x /usr/local/bin/ktlint
       - run: which ktlint
       #- run: bundle install --path vendor/bundle
       #- run: bundle exec danger --fail-on-errors=true
