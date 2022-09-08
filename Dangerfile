@@ -13,14 +13,23 @@ fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
 # Android Lint
-android_lint.gradle_task = "app:lint"
-android_lint.report_file = "app/build/reports/lint-results-debug.xml"
-android_lint.filtering = true
-android_lint.lint(inline_mode: true)
+# android_lint.gradle_task = "app:lint"
+# android_lint.report_file = "app/build/reports/lint-results-debug.xml"
+# android_lint.filtering = true
+# android_lint.lint(inline_mode: true)
 
-# ktlint
-ktlint.lint(inline_mode: true)
+# # ktlint
+# ktlint.lint(inline_mode: true)
 
 # JUnit
-junit.parse "/path/to/output.xml"
+test_reports_dir='app/build/test-results/testDebugUnitTest/'
+test_reports = []
+Dir.foreach(test_reports_dir) do |item|
+    next if item == '.' or item == '..' or File.extname(item) != '.xml'
+    test_reports.push(test_reports_dir + item)
+end
+
+test_reports.each {|report_file|
+    junit.parse report_file
+} 
 junit.report
