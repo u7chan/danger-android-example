@@ -9,5 +9,15 @@ jobs:
     steps:
       - checkout
       - run: sudo curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && sudo chmod a+x /usr/local/bin/ktlint
+      - restore_cache:
+          name: Restore Gem Package Cache
+          keys:
+            - gem-packages-{{ checksum "Gemfile.lock" }}
       - run: bundle install --path vendor/bundle
+      - save_cache:
+          name: Save Gem Package Cache
+          key: gem-packages-{{ checksum "Gemfile.lock" }}
+          paths:
+            - .vendor/bundle
+      - run: ./gradlew testDebugUnitTest
       - run: bundle exec danger --fail-on-errors=true
