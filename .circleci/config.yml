@@ -10,5 +10,5 @@ jobs:
       - checkout
       - run: sudo curl --output /usr/local/bin/ktlint -sL https://github.com/pinterest/ktlint/releases/download/$KTLINT_VERSION/ktlint && sudo chmod a+x /usr/local/bin/ktlint
       - run: bundle install --path vendor/bundle
-      - run: ./gradlew test
+      - run: ./gradlew testDebugUnitTest
       - run: bundle exec danger --fail-on-errors=true
