@@ -20,3 +20,7 @@ android_lint.lint(inline_mode: true)
 
 # ktlint
 ktlint.lint(inline_mode: true)
+
+# JUnit
+junit.parse "/path/to/output.xml"
+junit.report
